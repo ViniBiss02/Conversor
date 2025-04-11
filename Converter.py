@@ -1,13 +1,14 @@
 import tkinter as tk
-from tkinter import ttk
+#from tkinter import ttk
+import ttkbootstrap as ttk
 
 def convert():
     mile_input = entry_int.get()
     km_output = mile_input * 1.60934
     output_string.set(km_output)
 
-window = tk.Tk()
-window.title("Simple GUI")
+window = ttk.Window(themename="darkly")
+window.title("Converter")
 window.geometry("300x200")
 
 title_label = ttk.Label(master = window, text="Miles to Kilometers Converter", font=("Arial", 16))
