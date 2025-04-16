@@ -1,35 +1,25 @@
 import tkinter as tk
 from tkinter import ttk
-import time
 
-def button_function():
-    # Obtem o texto do entry e coloca na label
-    label["text"] = entry.get()
-    print(entry.get())
+def button_clicked():
+    print(string_var.get())
+    string_var.set("Button clicked!")
 
-    entry['state'] = 'disabled'  # Desabilita o campo de texto
-
-    # Limpa o campo de texto
-    entry.delete(0, tk.END)
-    time.sleep(5)  # Espera 5 segundos
-    entry['state'] = 'normal'  # Habilita o campo de texto
-    # Coloca o foco no campo de texto
-
+#window
 window = tk.Tk()
-window.title("Aprendendo Tkinter")
+window.title("Learn Tkinter")
 
-#widgets: elementos da interface
-#label: texto
-label = ttk.Label(master = window, text="um texto")
+#tkinter variables
+string_var = tk.StringVar()
+
+label = tk.Label(master = window, text="Label", textvariable=string_var)
 label.pack()
 
-#entry: campo de texto
-entry = ttk.Entry(master = window)
+entry = tk.Entry(master = window, textvariable=string_var)
 entry.pack()
 
-#button: botão
-button = ttk.Button(master = window, text="Clique aqui!", command=button_function)
+button = ttk.Button(master = window, text="Button", command=button_clicked)
 button.pack()
 
-#mainloop mantem a janela aberta
+#running
 window.mainloop()
